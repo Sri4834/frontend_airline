@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script defer src="../js/styles.js"></script>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">✈ AirConnect</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Flights</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <h1>Explore The Sky With AirConnect</h1>
+        <p>Book flights, track your bookings, and fly with ease.</p>
+        
+        <div class="booking-section">
+            <button class="booking-btn" onclick="showBookingForm()">Book a Flight</button>
+            <button class="booking-btn" onclick="showFlightStatus()">Flight Status</button>
+            
+        <a href="./login.html" class="login-btn">Login</a>
+        </div>
+
+        <div class="booking-form" id="bookingForm">
+            <h2>Book Your Flight</h2>
+            <label>From:</label>
+            <input type="text" placeholder="Enter Departure City">
+            <label>To:</label>
+            <input type="text" placeholder="Enter Destination">
+            <label>Departure Date:</label>
+            <input type="date">
+            <label>Passengers:</label>
+            <input type="number" min="1" placeholder="Enter Passenger Count">
+            <button class="submit-btn">Search Flights</button>
+        </div>
+
+        <div class="flight-status" id="flightStatus">
+            <h2>Your Booked Flights</h2>
+            <p>No flights booked yet.</p>
+        </div>
+    </section>
+</body>
+</html>

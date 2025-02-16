@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Airline Reservation</title>
+    
+    <link rel="stylesheet" href="../styles/register.css">
+    
+    <!-- LottieFiles Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
+    <script defer src="../js/register.js"></script>
+</head>
+<body class="register-body">
+    <div class="register-wrapper">
+        <!-- Lottie Animation -->
+        <div id="lottie-animation" class="animation-container"></div>
+
+        <!-- Registration Form -->
+        <div class="register-container">
+            <h2>Create an Account ✈</h2>
+            <p>Join us and explore new destinations</p>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="role">Register as:</label>
+                    <select id="role">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="register-btn">Register</button>
+
+                <div class="extra-links">
+                    <a href="login.html">Already have an account? Login here!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Load Lottie Animation
+        document.addEventListener("DOMContentLoaded", function () {
+            lottie.loadAnimation({
+                container: document.getElementById('lottie-animation'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: "../assests/welcome.json" // Ensure correct file path
+            });
+        });
+    </script>
+</body>
+</html>

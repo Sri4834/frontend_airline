@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            transition: 0.3s;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #34495e;
+        }
+        .sidebar .divider {
+            height: 2px;
+            background: #ecf0f1;
+            margin: 10px 0;
+        }
+        .logout {
+            background: #e74c3c;
+        }
+        .content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 20px;
+            transition: 0.3s;
+        }
+        header {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .main-content {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Airline System</h2>
+        <ul>
+            <li onclick="loadContent('schedule')">Schedule of Flights</li>
+            <li onclick="loadContent('airline')">Airline Management</li>
+            <li onclick="loadContent('passenger')">Passenger Limit</li>
+            <li onclick="loadContent('feedback')">Feedback</li>
+            <li class="divider"></li>
+            <li onclick="loadContent('profile')">Profile</li>
+            <li onclick="loadContent('addMember')">Add New Member</li>
+            <li onclick="logout()" class="logout">Logout</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <header>
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            <h1>Dashboard</h1>
+        </header>
+        <section class="main-content" id="main-content">
+            <p>Welcome to the Airline Management Dashboard!</p>
+        </section>
+    </div>
+
+    <script>
+        function loadContent(section) {
+            const content = {
+                schedule: '<h2>Schedule of Flights</h2><p>Flight schedule details...</p>',
+                airline: '<h2>Airline Management</h2><p>Manage airline details...</p>',
+                passenger: '<h2>Passenger Limit</h2><p>Passenger limit details...</p>',
+                feedback: '<h2>Feedback</h2><p>User feedback section...</p>',
+                profile: '<h2>Profile</h2><p>Profile details...</p>',
+                addMember: '<h2>Add New Member</h2><p>Add a new member to the system...</p>'
+            };
+            document.getElementById('main-content').innerHTML = content[section] || '<p>Content not found.</p>';
+        }
+        
+        function logout() {
+            alert('Logging out...');
+            window.location.href = 'login.html';
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            if (sidebar.style.width === '250px' || sidebar.style.width === '') {
+                sidebar.style.width = '0';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.width = '250px';
+                content.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</body>
+</html>
